@@ -2,15 +2,15 @@ import React from 'react'
 import MonthlyNavbar from '../../Component/MonthlyNavbar'
 import MonthlySlider from '../../Component/MonthlySlider'
 import SaveCriticalPatients from '../../Component/SaveCriticalPatients'
-import WhatMakesGem from '../../Component/WhatMakesGem'
+import WhatMakesGemDiff from '../../Component/WhatMakesGemDiff'
 
 const Monthly = () => {
   return (
     <>
-    <MonthlyNavbar/>
-    <MonthlySlider/>
+    {/* <MonthlyNavbar/> */}
+    {/* <MonthlySlider/> */}
     <SaveCriticalPatients/>
-    <WhatMakesGem/>
+    {/* <WhatMakesGemDiff/> */}
     </>
   )
 }

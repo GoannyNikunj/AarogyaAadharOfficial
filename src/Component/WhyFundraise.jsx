@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import icon from "../assets/Images/DonateMonthly/Icon.png"
 const WhyFundraise = () => {
     const [showMore, setShowMore] = useState(false);
 
@@ -14,7 +14,9 @@ const WhyFundraise = () => {
                 <div className={`flex gap-4 justify-center items-start transition-all duration-300 ease-in-out ${showMore ? 'h-auto' : 'h-[350px] overflow-hidden'}`}>
                     <div className='flex flex-col gap-4'>
                         <div className='w-[240px] h-[236px] flex flex-col justify-center items-center bg-slate-200'>
-                            <img/>
+                            <div className=''>
+                            <img src={icon} className='w-full h-full'/>
+                            </div>
                             <h1>0%</h1>
                             <p>Platform Fee</p>
                         </div>
