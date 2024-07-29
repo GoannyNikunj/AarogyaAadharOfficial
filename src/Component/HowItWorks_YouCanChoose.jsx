@@ -2,7 +2,7 @@ import React from 'react';
 
 const HowItWorks_YouCanChoose = () => {
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row mt-10 mb-14 px-4 md:px-10">
+    <div className="max-w-screen-lg mx-auto flex flex-col md:flex-row mt-24 mb-14 px-4 md:px-10">
       <div className="md:w-1/2 mb-6 md:mb-0 text-left">
       <h1 className="text-4xl md:text-4xl font-bold mb-4">
           You can Choose<br />
@@ -18,7 +18,7 @@ const HowItWorks_YouCanChoose = () => {
           with the support of donors and well-wishers online.
         </p>
         <button className="border border-blue-500 p-3 w-1/2 shadow-lg">
-          <b>GET A CALLBACK</b>
+          <b><i class="fa-brands fa-whatsapp px-2 text-blue-500"></i>CHAT ON WHATSAPP</b>
         </button>
       </div>
       <div className="md:w-1/2 flex d:justify-end -mt-12">

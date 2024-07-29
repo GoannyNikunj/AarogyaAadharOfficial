@@ -64,7 +64,7 @@ const HowItWorksFooter = () => {
                     <div className="col-span-6">
                         <img src={logo} className='w-[150px]' />
                         <p className='text-[10px]'>Impactguru is an online technology platform connecting donors and donees. We do not provide any financial return in any form whatsoever, including but not limited to financial securities (debt or equity), interest, dividend, profit share, rewards in cash, to individuals who make payments on the Platform.</p>
-                        <p className='text-[10px]'>Terms of Use - Privacy Policy - Raise a Concern - Cookie Policy</p>
+                        <p className='text-[10px] text-blue-500'>Terms of Use - Privacy Policy - Raise a Concern - Cookie Policy</p>
                     </div>
                     <div className="col-span-6 flex justify-center items-center">
                         <div className=' grid grid-cols-4 lg:grid-cols-8 items-center bg-white my-2'>
