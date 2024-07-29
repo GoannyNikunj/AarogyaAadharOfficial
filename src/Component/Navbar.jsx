@@ -151,34 +151,34 @@ const Navbar = () => {
   ];
 
   const TopDropdownData = [
-    // {
-    //   label: "Registration",
-    //   options: [
-    //     "As Patient",
-    //     "As Doctor",
-    //     "As Hospital / Clinic",
-    //     "As Pathology",
-    //     "As Diagnostic Center",
-    //     "As Ambulance",
-    //     "As Health Worker",
-    //     "As Corporate ",
-    //     "As Equipment Sellers",
-    //   ],
-    // },
-    // {
-    //   label: "Login",
-    //   options: [
-    //     "Patient",
-    //     "Doctor",
-    //     "Hospital / Clinic",
-    //     "Pathology",
-    //     "Diagnostic Center",
-    //     "Ambulance",
-    //     "Health Worker",
-    //     "Corporate Company",
-    //     "Equipment Sellers",
-    //   ],
-    // },
+    {
+      label: "Registration",
+      options: [
+        "Patient",
+        "Doctor",
+        "Hospital / Clinic",
+        "Pathology",
+        "Diagnostic Center",
+        "Ambulance",
+        "Health Worker",
+        "Corporate ",
+        "Equipment Sellers",
+      ],
+    },
+    {
+      label: "Login",
+      options: [
+        "Patient",
+        "Doctor",
+        "Hospital / Clinic",
+        "Pathology",
+        "Diagnostic Center",
+        "Ambulance",
+        "Health Worker",
+        "Corporate Company",
+        "Equipment Sellers",
+      ],
+    },
     { label: "Language", options: ["English", "Mrathi", "Hindi"] },
     // {
     //   label: "Help ?",
@@ -290,13 +290,13 @@ const Navbar = () => {
      
 
       <div className=" fixed top-0 w-full z-50 ">
-        <div className="flex justify-between pt-2 bg-[#d9eefd] px-4 pb-2">
+        <div className="flex justify-between pt-2 bg-white px-4 pb-2">
           <div className=" flex items-center">
-            <img src={Aarogya_Aadhar_logo} alt="" />
+            <img src={Aarogya_Aadhar_logo} alt="" className=" cursor-pointer"  onClick={()=>navigate('/')}/>
           </div>
 
           <div className="">
-          <div className=" flex justify- items-center col-span-2 w-full rounded-full border bg-gray-50 outline-none border-blue-700 px-2 h-10">
+          <div className=" flex justify- items-center col-span-2 w-full rounded-full border bg-gray-50 outline-none border-blue-700 px-4 h-10">
               <input
                 type="text"
                 placeholder="Search For Healthcare Services"
@@ -304,74 +304,78 @@ const Navbar = () => {
               />
               <FaSearch className=" text-gray-500" />
             </div>
-            <div className="flex justify-between gap-10 mt-2 mx-20">
-              <div className="h-14 flex flex-col justify-center items-center">
-                <div className="h-8  rounded-md flex bg-[#dfecf6] justify-center items-center">
-                  <FaCalendarAlt className="h-9 w-9 p-1 text-blue-900" />
-                </div>
-                <div className="relative group">
-                  <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
-                    Book Free Appointment
-                  </p>
-                  <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
-                    Book Free Appointment
-                  </span>
-                </div>
-              </div>
+            <div className="flex justify-between gap-4 xl:gap-10 mt-2 mx-10 xl:20">
+             
+                <div
+      className="h-14 flex flex-col justify-center items-center group cursor-pointer"
+      onClick={() => navigate("/bookappointment")}
+    >
+      <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center items-center relative">
+        <FaCalendarAlt className="h-9 w-9 p-1 text-blue-900" />
+        <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+          Book Free Appointment
+        </span>
+      </div>
+      <div className="relative">
+        <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
+          Book Free Appointment
+        </p>
+      </div>
+    </div>
 
-              <div className="h-14 flex flex-col justify-center items-center">
-                <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center  items-center">
-                  <FaBed className="h-9 w-10 p-1 text-blue-900" />
-                </div>
-                <div className="relative group">
-                  <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
-                    Bed Booking
-                  </p>
-                  <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
-                    Bed Booking
-                  </span>
-                </div>
-              </div>
+    <div className="h-14 flex flex-col justify-center items-center group cursor-pointer" onClick={() => navigate('/bedBooking')}>
+        <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center items-center relative">
+          <FaBed className="h-9 w-10 p-1 text-blue-900" />
+          <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+            Bed Booking
+          </span>
+        </div>
+        <div className="relative">
+          <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
+            Bed Booking
+          </p>
+        </div>
+      </div>
 
-              <div className="h-14 flex flex-col justify-center items-center">
-                <div className="h-8  rounded-md flex bg-[#dfecf6] justify-center items-center">
-                  <FaTruckMedical className="h-8 w-10 p-1 text-red-500" />
-                </div>
-                <div className="relative group">
-                  <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
-                    Book Ambulance
-                  </p>
-                  <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
-                    Book Ambulance
-                  </span>
-                </div>
-              </div>
+      <div className="h-14 flex flex-col justify-center items-center group cursor-pointer" onClick={() => navigate('/AmbulanceBooking')}>
+        <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center items-center relative">
+          <FaTruckMedical className="h-8 w-10 p-1 text-red-500" />
+          <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+            Book Ambulance
+          </span>
+        </div>
+        <div className="relative">
+          <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
+            Book Ambulance
+          </p>
+        </div>
+      </div>
 
-              <div className="h-14 flex flex-col justify-center items-center">
-                <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center items-center">
-                  <LiaIdCardSolid className="h-11 w-10 p-1  text-blue-900" />
-                </div>
-                <div className="relative group">
-                  <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
-                    Apply Health Card
-                  </p>
-                  <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-6 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
-                    Apply Health Card
-                  </span>
-                </div>
-              </div>
+      <div className="h-14 flex flex-col justify-center items-center group cursor-pointer" onClick={() => navigate('/apply-health-card')}>
+        <div className="h-8 rounded-md flex bg-[#dfecf6] justify-center items-center relative">
+          <LiaIdCardSolid className="h-11 w-10 p-1 text-blue-900" />
+          <span className="hidden group-hover:block absolute bg-blue-500 text-white text-xs rounded py-1 px-2 top-14 left-1/2 transform -translate-x-1/2 whitespace-nowrap z-10">
+            Apply Health Card
+          </span>
+        </div>
+        <div className="relative">
+          <p className="text-[14px] cursor-pointer text-blue-900 max-w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
+            Apply Health Card
+          </p>
+        </div>
+      </div>
             </div>
           </div>
 
           <div>
             
-          <button className=" text-[14px] lg:text-[12px] xl:text-[14px]  font-medium  text-[#2e1065] pb-1">
+          {/* <button className=" text-[14px] lg:text-[12px] xl:text-[14px]  font-medium  text-[#2e1065] pb-1">
           Registration
         </button>
         <button className=" text-[14px] lg:text-[12px] xl:text-[14px] ml-2  font-medium  text-[#2e1065] pb-1">
           Login
-        </button>
-        <span className=" ml-2">
+        </button> */}
+        <span className=" flex gap-2">
             {TopDropdownData.map((dropdown, index) => (
               <Dropdown
                 key={index}
@@ -380,10 +384,11 @@ const Navbar = () => {
                 textcolor={"text-[#2e1065]"}
               />
             ))}
-            </span>
-             <button className=" text-[14px] lg:text-[12px] xl:text-[14px] ml-1 font-medium  text-[#2e1065] pb-1">
+             <button className=" text-[14px] lg:text-[12px] xl:text-[14px] ml-1 font-medium hover:bg-blue-400 hover:text-white px-2 py-1 rounded-md  text-[#2e1065] pb-1">
           Help?
         </button>
+            </span>
+            
           </div>
         </div>
 

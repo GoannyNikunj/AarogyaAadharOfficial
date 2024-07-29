@@ -330,3 +330,28 @@ video {
     .heart-icon {
       animation: heartbeat 1s infinite;
     } 
+
+    /* AutoSlider */
+    /* slider.css */
+
+/* slider.css */
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(80px); /* Start with text slightly below its final position */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth transition for both properties */
+}
+
+.fade-up.active {
+  opacity: 1;
+  transform: translateY(0); /* End at the final position */
+}
+
+.fade-up-h1 {
+  transition-delay: 0s; /* No delay for h1 */
+}
+
+.fade-up-h3 {
+  transition-delay: 3s; /* Adjust the delay for h3 to ensure it fades up after h1 */
+}
+

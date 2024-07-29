@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { FaCalendarAlt } from "react-icons/fa";
+import { FaCalendarAlt, FaTimes } from "react-icons/fa";
 import Book_Free_Appointment from "../assets/Images/Book-Free-Appointment.png";
 import MobileNavbar from "./MobileNavabr";
 import Navbar from "./Navbar";
@@ -13,7 +13,7 @@ const BookAppointment = () => {
   const [firstName, setFirstName] = useState("");
   const [middleName, setMiddleName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [dob, setDob] = useState(null); // Use null for initial state
+  const [dob, setDob] = useState(null);
   const [gender, setGender] = useState("");
   const [category, setCategory] = useState("");
   const [mobile, setMobile] = useState("");
@@ -23,54 +23,6 @@ const BookAppointment = () => {
   const [pinCode, setPinCode] = useState("");
   const [aadhar, setAadhar] = useState("");
 
-  const ExpertDoctor = [
-    "General Physician",
-      "Emergency Medicine",
-      "Internal Medicine",
-      "Occupational Medicine",
-      "Chest Physician",
-      "Pediatricians",
-      "Otorhinolaryngologist",
-      "Obstetrician and Gynecologists",
-      "IVF Consultant",
-      "Oral & Maxillofacial Surgeon",
-      "Otolaryngologists/ENT",
-      "Vascular Surgeon",
-      "Ophthalmologists/Eye Specialist",
-      "Cardiologists",
-      "Nephrologists",
-      "General Surgeon",
-      "Proctologist",
-      "Orthopedics",
-      "Joint Replacement Surgeon",
-      "Physiotherapist",
-      "Oncologists/Cancer",
-      "Radiation Oncologist",
-      "Nuclear Medicine",
-      "Colorectal Surgeon",
-      "Radiologists",
-      "Urologists",
-      "Dermatologists",
-      "Plastic Surgeon",
-      "Pathologist",
-      "Neurologists",
-      "Psychiatrists",
-      "Dentist",
-      "Dietitian",
-      "Sexologist",
-      "Gastroenterologists",
-      "Geriatric Medicine",
-      "Allergists",
-      "Endocrinologists",
-      "Cardiac Surgeon",
-      "Rheumatologists",
-      "Pulmonologists",
-      "Anesthesiologists",
-      "Ayurvedic",
-      "Homeopathy",
-      "Chiropractor"
-  ];
-
   const [firstNameError, setFirstNameError] = useState("");
   const [middleNameError, setMiddleNameError] = useState("");
   const [lastNameError, setLastNameError] = useState("");
@@ -78,17 +30,20 @@ const BookAppointment = () => {
   const [pinCodeError, setPinCodeError] = useState("");
   const [aadharError, setAadharError] = useState("");
 
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const [modalInput, setModalInput] = useState(""); // Added for input in modal
+
   const categoryRef = useRef(null);
-  const datePickerRef = useRef(null); // Add a ref for the DatePicker
+  const datePickerRef = useRef(null);
 
   const handleDateChange = (date) => {
-    setDob(date); // Set the selected date object
+    setDob(date);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Perform validations
     let valid = true;
 
     if (firstName.trim() === "") {
@@ -134,7 +89,6 @@ const BookAppointment = () => {
     }
 
     if (valid) {
-      // Handle form submission with all state values including dob
       console.log("Form submitted:", {
         firstName,
         middleName,
@@ -191,8 +145,13 @@ const BookAppointment = () => {
 
   const handleDatePickerClick = () => {
     if (datePickerRef.current) {
-      datePickerRef.current.setFocus(); // Focus the DatePicker input
+      datePickerRef.current.setFocus();
     }
+  };
+
+  const openModal = (type) => {
+    setModalContent(type);
+    setModalOpen(true);
   };
 
   return (
@@ -211,7 +170,7 @@ const BookAppointment = () => {
           <div className="hidden md:block col-span-12 md:col-span-4 w-full pt- flex flex-col justify-center items-center">
             <img src={Book_Free_Appointment} alt="Book Free Appointment" />
           </div>
-          <div className="col-span-12 md:col-span-8">
+          <div  className="col-span-12 md:col-span-8 ">
             <h2 className="text-4xl font-bold text-center mx-2 py-2 text-blue-900 justify-self-end">
               Book Free Appointment
             </h2>
@@ -219,11 +178,8 @@ const BookAppointment = () => {
             <form onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-2">
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="firstName"
-                    className="font-semibold text-blue-900"
-                  >
-                    First Name <span className="text-red-500">*</span>
+                  <label htmlFor="firstName" className="font-semibold text-blue-900">
+                    First Name
                   </label>
                   <input
                     type="text"
@@ -232,20 +188,12 @@ const BookAppointment = () => {
                     onChange={(e) => setFirstName(e.target.value)}
                     placeholder="Enter First Name"
                     className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
                   />
-                  {firstNameError && (
-                    <span className="text-red-500 text-sm">
-                      {firstNameError}
-                    </span>
-                  )}
+                  {firstNameError && <p className="text-red-500">{firstNameError}</p>}
                 </div>
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="middleName"
-                    className="font-semibold text-blue-900"
-                  >
-                    Middle Name <span className="text-red-500">*</span>
+                  <label htmlFor="middleName" className="font-semibold text-blue-900">
+                    Middle Name
                   </label>
                   <input
                     type="text"
@@ -254,20 +202,12 @@ const BookAppointment = () => {
                     onChange={(e) => setMiddleName(e.target.value)}
                     placeholder="Enter Middle Name"
                     className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
                   />
-                  {middleNameError && (
-                    <span className="text-red-500 text-sm">
-                      {middleNameError}
-                    </span>
-                  )}
+                  {middleNameError && <p className="text-red-500">{middleNameError}</p>}
                 </div>
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="lastName"
-                    className="font-semibold text-blue-900"
-                  >
-                    Last Name <span className="text-red-500">*</span>
+                  <label htmlFor="lastName" className="font-semibold text-blue-900">
+                    Last Name
                   </label>
                   <input
                     type="text"
@@ -276,13 +216,8 @@ const BookAppointment = () => {
                     onChange={(e) => setLastName(e.target.value)}
                     placeholder="Enter Last Name"
                     className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
                   />
-                  {lastNameError && (
-                    <span className="text-red-500 text-sm">
-                      {lastNameError}
-                    </span>
-                  )}
+                  {lastNameError && <p className="text-red-500">{lastNameError}</p>}
                 </div>
                 <div className="flex flex-col relative">
                   <label htmlFor="dob" className="font-semibold text-blue-900">
@@ -305,194 +240,42 @@ const BookAppointment = () => {
                   </div>
                 </div>
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="gender"
-                    className="font-semibold text-blue-900"
-                  >
-                    Gender <span className="text-red-500">*</span>
+                  <label htmlFor="gender" className="font-semibold text-blue-900">
+                    Gender
                   </label>
-                  <div className="relative max-w-[85%]">
                   <select
                     id="gender"
                     value={gender}
                     onChange={handleGenderChange}
-                    className="border border-blue-500 h-10 outline-none rounded-md pr-10 pl-3 appearance-none  w-full"
-                    required
+                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
                   >
-                    {!gender && (
-                      <option disabled hidden value="">
-                        Select Gender
-                      </option>
-                    )}
-                    <option value="Select-Gender">Select-Gender</option>
+                    <option value="Select-Gender">Select Gender</option>
                     <option value="Male">Male</option>
                     <option value="Female">Female</option>
-                    <option value="Transgender">Transgender</option>
                     <option value="Other">Other</option>
                   </select>
-                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                      <svg
-                        className="w-4 h-4 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
                 </div>
                 <div className="flex flex-col">
-                  <label
-                    htmlFor="category"
-                    className="font-semibold text-blue-900"
-                  >
-                    Category <span className="text-red-500">*</span>
+                  <label htmlFor="category" className="font-semibold text-blue-900">
+                    Category
                   </label>
-                  <div className="relative max-w-[85%]">
                   <select
                     id="category"
                     value={category}
                     onChange={handleCategoryChange}
                     onFocus={handleCategoryFocus}
                     ref={categoryRef}
-                     className="border border-blue-500 h-10 outline-none rounded-md pr-10 pl-3 appearance-none  w-full"
-                    required
+                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
                   >
-                    {!category && (
-                      <option disabled hidden value="">
-                        Select Your Service
-                      </option>
-                    )}
-                    {ExpertDoctor.map((doctor, index) => (
-                      <option key={index} value={doctor}>
-                        {doctor}
-                      </option>
-                    ))}
+                    <option value="Select-Your-Service">Select Your Service</option>
+                    <option value="General">General</option>
+                    <option value="Emergency">Emergency</option>
                   </select>
-                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-                      <svg
-                        className="w-4 h-4 text-gray-700"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M19 9l-7 7-7-7"
-                        ></path>
-                      </svg>
-                    </div>
-                  </div>
-                  </div>
-                
-               
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="mobile"
-                    className="font-semibold text-blue-900"
-                  >
-                    Mobile Number <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="mobile"
-                    value={mobile}
-                    onChange={(e) => setMobile(e.target.value)}
-                    placeholder="Enter Mobile Number"
-                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
-                  />
-                  {mobileError && (
-                    <span className="text-red-500 text-sm">{mobileError}</span>
-                  )}
                 </div>
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="email"
-                    className="font-semibold text-blue-900"
-                  >
-                    Email ID
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter Email ID"
-                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                  />
-                </div>
-                <div className="flex flex-col relative">
-                <label
-                  htmlFor="patient-otp"
-                  className="font-semibold text-blue-900"
-                >
-                  Enter OTP <span className="text-red-500">*</span>
-                </label>
-                <div className="relative border border-blue-500 rounded-md px-3 max-w-[85%]">
-                  <input
-                    type="text"
-                    id="patient-otp"
-                    placeholder="Enter OTP"
-                    className="h-12 outline-none rounded-md placeholder-text flex-grow"
-                  />
-                  <button className="absolute inset-y-0 right-0 bg-blue-900 text-white rounded-md px-3">
-                    Get OTP
-                  </button>
-                </div>
-              </div>
-                <div className="flex flex-col">
-                  <label htmlFor="city" className="font-semibold text-blue-900">
-                    City
-                    <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="city"
-                    value={city}
-                    onChange={(e) => setCity(e.target.value)}
-                    placeholder="Enter City Name"
-                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
-                  />
-                </div>
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="pinCode"
-                    className="font-semibold text-blue-900"
-                  >
-                    Pin Code <span className="text-red-500">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="pinCode"
-                    value={pinCode}
-                    onChange={(e) => setPinCode(e.target.value)}
-                    placeholder="Enter Pin Code"
-                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
-                  />
-                  {pinCodeError && (
-                    <span className="text-red-500 text-sm">{pinCodeError}</span>
-                  )}
-                </div>
-                <div className="flex flex-col">
-                  <label
-                    htmlFor="aadhar"
-                    className="font-semibold text-blue-900"
-                  >
-                    Aadhar Number <span className="text-red-500">*</span>
+            
+                 <div className="flex flex-col">
+                  <label htmlFor="aadhar" className="font-semibold text-blue-900">
+                    Aadhar Number
                   </label>
                   <input
                     type="text"
@@ -501,14 +284,82 @@ const BookAppointment = () => {
                     onChange={(e) => setAadhar(e.target.value)}
                     placeholder="Enter Aadhar Number"
                     className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
-                    required
                   />
-                  {aadharError && (
-                    <span className="text-red-500 text-sm">{aadharError}</span>
-                  )}
+                  {aadharError && <p className="text-red-500">{aadharError}</p>}
                 </div>
-              </div>
-              <div className="flex justify-end mt-10">
+                <div className="flex flex-col">
+                  <label htmlFor="city" className="font-semibold text-blue-900">
+                    City
+                  </label>
+                  <input
+                    type="text"
+                    id="city"
+                    value={city}
+                    onChange={(e) => setCity(e.target.value)}
+                    placeholder="Enter City"
+                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="pinCode" className="font-semibold text-blue-900">
+                    Pin Code
+                  </label>
+                  <input
+                    type="text"
+                    id="pinCode"
+                    value={pinCode}
+                    onChange={(e) => setPinCode(e.target.value)}
+                    placeholder="Enter Pin Code"
+                    className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
+                  />
+                  {pinCodeError && <p className="text-red-500">{pinCodeError}</p>}
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="mobile" className="font-semibold text-blue-900">
+                    Mobile Number
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="text"
+                      id="mobile"
+                      value={mobile}
+                      onChange={(e) => setMobile(e.target.value)}
+                      placeholder="Enter Mobile Number"
+                      className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[90%] placeholder-text"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-600"
+                      onClick={() => openModal("Mobile")}
+                    >
+                      Verify
+                    </button>
+                  </div>
+                  {mobileError && <p className="text-red-500">{mobileError}</p>}
+                </div>
+                <div className="flex flex-col">
+                  <label htmlFor="email" className="font-semibold text-blue-900">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <input
+                      type="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Enter Email Address"
+                      className="border border-blue-500 h-10 outline-none rounded-md px-3 max-w-[85%] placeholder-text"
+                    />
+                    <button
+                      type="button"
+                      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-red-600"
+                      onClick={() => openModal("Email")}
+                    >
+                      Verify
+                    </button>
+                  </div>
+                </div>
+                <div className="flex justify-end mt-10">
                 <button
                   type="submit"
                   className="bg-blue-700 text-white font-semibold rounded-md py-2 px-4"
@@ -516,20 +367,53 @@ const BookAppointment = () => {
                   Submit
                 </button>
               </div>
+              </div>
             </form>
-          </div>
-          <div className="block md:hidden col-span-12 md:col-span-4 w-full pt- flex flex-col justify-center items-center">
-            <img src={Book_Free_Appointment} alt="Book Free Appointment" />
           </div>
         </div>
       </div>
-      <div className="py-4">
-        <OurPolicies />
-        <Footer />
-      </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-5 rounded-md w-80">
+            <div className="flex justify-between items-center">
+              <h3 className="text-xl font-semibold text-blue-900">
+                Verify {modalContent === "Mobile" ? "Mobile Number" : "Email Address"}
+              </h3>
+              <FaTimes
+                className="cursor-pointer"
+                onClick={() => setModalOpen(false)}
+              />
+            </div>
+            <div className="mt-4">
+            <input
+                type="text"
+                value={modalInput}
+                onChange={(e) => setModalInput(e.target.value)}
+                placeholder={`Enter ${modalContent === "Mobile" ? "Mobile OTP" : "Email OTP"}`}
+                className="border border-blue-500 h-10 outline-none rounded-md px-3 w-full"
+              />
+            </div>
+            <div className="mt-4 flex justify-end">
+              <button
+                className="bg-blue-600 text-white py-2 px-4 rounded-md"
+                onClick={() => {
+                  setModalOpen(false);
+                  // Handle verification logic here
+                }}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <OurPolicies />
+      <Footer />
     </>
   );
 };
 
 export default BookAppointment;
-

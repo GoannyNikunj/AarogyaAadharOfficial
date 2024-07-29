@@ -19,7 +19,7 @@ const HowItWorks = () => {
             <HowItWorksAchievements />
             <HowItWorks_YouCanChoose />
             <RaiseFund />
-            <HowItWorks_slider2 />
+            {/* <HowItWorks_slider2 /> */}
             <WhatsCrowdFunding />
             <HowDoesCrowdfunding />
             <FundraisingJourney />

@@ -9,7 +9,7 @@ import HowCanCrowdFundingHelp from '../../Component/HowCanCrowdFundingHelp'
 
 const AarogyaDhan = () => {
   return (
-    <div>
+    <div className=' mt-24'>
       <AarogyaDhanNavbar/>
       <Aarogyadhan_slider/>
 
