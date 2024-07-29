@@ -3,7 +3,7 @@ import Google_Play_Store from "../assets/Images/Google_Play_Store.png";
 import App_Store from "../assets/Images/App_Store.png";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { IoLogoYoutube } from "react-icons/io";
 const OurPolicies = () => {
@@ -20,11 +20,11 @@ const OurPolicies = () => {
       </div>
       <div className=" lg:hidden flex flex-col">
         <h1 className="text-md  sm:text-2xl font-bold pb-2 text-blue-900">Connect</h1>
-        <p className=" text-[10px] sm:text-[11px] xl:text-[16px] text-blue-900">Social Links</p>
+        <p className=" text-[10px] sm:text-[11px] xl:text-[16px] text-blue-900">Follow Aarogya Aadhar</p>
         <div className=" flex gap-3 py-2">
           <FaFacebook className=" h-6 w-6 text-blue-700 cursor-pointer" />
           <FaInstagramSquare className=" h-6 w-6 text-red-500 cursor-pointer" />
-          <FaTwitter className=" h-6 w-6 text-blue-700 cursor-pointer" />
+          <FaXTwitter  className=" h-6 w-6 text-blue-700 cursor-pointer" />
           <IoLogoYoutube className=" h-6 w-6 text-red-500 cursor-pointer" />
           <FaLinkedin className=" h-6 w-6 text-blue-700 cursor-pointer" />
         </div>
@@ -64,11 +64,11 @@ const OurPolicies = () => {
       </div>
       <div className=" hidden lg:flex flex-col">
         <h1 className="text-lg sm:text-2xl font-bold pb-2 text-blue-900">Connect</h1>
-        <p className=" text-[10px] sm:text-[11px] xl:text-[16px] text-blue-900">Social Links</p>
+        <p className=" text-[10px] sm:text-[11px] xl:text-[16px] text-blue-900">Follow Aarogya Aadhar</p>
         <div className=" flex gap-3 py-2">
           <FaFacebook className=" h-6 w-6 text-blue-700 cursor-pointer" />
           <FaInstagramSquare className=" h-6 w-6 text-blue-700 cursor-pointer" />
-          <FaTwitter className=" h-6 w-6 text-blue-700 cursor-pointer" />
+          <FaXTwitter className=" h-6 w-6 text-blue-700 cursor-pointer" />
           <IoLogoYoutube className=" h-6 w-6 text-blue-700 cursor-pointer" />
           <FaLinkedin className=" h-6 w-6 text-blue-700 cursor-pointer" />
         </div>

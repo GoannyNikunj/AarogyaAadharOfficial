@@ -25,7 +25,7 @@ const MobileDropdown = ({ label, options,setOpenDropdown }) => {
     <div className="relative inline-block text-left w-full" ref={dropdownRef}>
         {/* <hr /> */}
       <button
-        className={`inline-flex px-2 sm:px-4 w-full h-8 text-[#2e1065] rounded-md py-1 text-[12px] sm:text-sm font-medium`}
+        className={`inline-flex px-2 sm:px-4 w-full h-8 text-[#2e1065] rounded-md py-1 text-[12px] sm:text-sm font-semibold`}
         onClick={toggleDropdown}
       >
         {label}

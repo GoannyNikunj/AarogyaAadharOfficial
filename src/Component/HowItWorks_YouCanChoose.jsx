@@ -8,23 +8,25 @@ const HowItWorks_YouCanChoose = () => {
           You can Choose<br />
           Medical Fundraising with<br /> ImpactGuru if
         </h1>
-        <ul className="list-disc ml-8 md:ml-10 mb-4">
+        <ul className="list-disc text-blue-900 font-medium lg:font-semibold ml-6 mb-4">
           <li>You need funds urgently</li>
           <li>You have limited savings</li>
           <li>Medical Loans and Insurance are not enough</li>
         </ul>
-        <p className="mb-6">
+        <p className="mb-6 text-blue-900 font-medium lg:font-semibold">
           Get financial help for medical treatment by raising funds
           with the support of donors and well-wishers online.
         </p>
+
         <button className="border border-blue-500 p-3 w-1/2 shadow-lg">
           <b><i class="fa-brands fa-whatsapp px-2 text-blue-500"></i>CHAT ON WHATSAPP</b>
         </button>
+
       </div>
-      <div className="md:w-1/2 flex d:justify-end -mt-12">
+      <div className="col-span-3 hidden object-contain lg:flex">
         <img
           src="https://d2aq6dqxahe4ka.cloudfront.net/themes/neumorphism/images/medical-crowdfunding/webp/trial-croped.webp"
-          className="w-4/5 md:w-full  md:mt-0"
+          className="h-full w-full "
           alt="Medical Crowdfunding"
         />
       </div>

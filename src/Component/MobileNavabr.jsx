@@ -158,15 +158,15 @@ const MobileNavbar = () => {
     {
       label: "Registration",
       options: [
-        "As Patient",
-        "As Doctor",
-        "As Hospital / Clinic",
-        "As Pathology",
-        "As Diagnostic Center",
-        "As Ambulance",
-        "As Health Worker",
-        "As Corporate ",
-        "As Equipment Sellers"
+        "Patient",
+        "Doctor",
+        "Hospital / Clinic",
+        "Pathology",
+        "Diagnostic Center",
+        "Ambulance",
+        "Health Worker",
+        "Corporate ",
+        "Equipment Sellers"
       ]
     },
     {
@@ -235,7 +235,7 @@ const MobileNavbar = () => {
             <input
               type="text"
               placeholder="Search Healthcare Services"
-              className="flex-grow outline-none sm:px-4 text-blue-900 text-[13px] sm:text-[19px] h-full rounded-full"
+              className="flex-grow outline-none sm:px-4 text-blue-900 text-[10px] sm:text-[19px] font-semibold h-full rounded-full"
             />
             <FaSearch className="text-blue-900 mx-2" />
           </div>
