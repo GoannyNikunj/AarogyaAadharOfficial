@@ -81,10 +81,10 @@ const AarogyaDhanNavbar = () => {
                 </button>
               </div>
               <div className="text-center space-y-4">
-                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1">Home</p>
-                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1">How it Works</p>
+                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1" onClick={()=>navigate('/aarogyadhan')}>Home</p>
+                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1" onClick={()=>navigate('/howitwork')}>How it Works</p>
                 <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1">Browse Fundraisers</p>
-                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1">Top Fundraisers</p>
+                <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1" onClick={()=>navigate('/topfundraisers')}>Top Fundraisers</p>
                 <p className="text-blue-900 cursor-pointer">Connect With Us</p>
                 <p className="text-blue-900 cursor-pointer hover:bg-gray-100 py-1 flex items-center justify-center"> <FaPhoneAlt className="h-5 w-5 mr-1"/>340867657688</p>
                 <button className="px-4 py-1 rounded-md bg-blue-900 text-[14px] text-white font-semibold">

@@ -12,10 +12,11 @@ import AllDiseases from "../../Component/AllDiseases";
 import ScrollingTagline from "../../Component/ScrollingTagline";
 import OurPolicies from "../../Component/OurPolicies";
 import Footer from "../../Component/Footer";
-import AarogyaDhan from '../../assets/Images/AarogyaDhan.jpeg'
-import Healthcard from '../../assets/Images/NewSilder/Aarogy Aadhar01.jpg'
+import AarogyaDhan from '../../assets/Images/Web logo1.png'
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate=useNavigate()
   return (
     <div className="overflow-x-hidden">
       <div className="lg:hidden">
@@ -27,13 +28,13 @@ const Home = () => {
       <div className="flex lg:hidden z-10 fixed top-[77px] sm:top-[100px] py-[2px] w-full bg-white">
         <ScrollingTagline />
       </div >
-      <div className="mt-[15px] sm:mt-[40px] xl:mt-[65px] ">
+      <div className="mt-[90px] sm:mt-[120px] lg:mt-[155px] ">
         <div className=" bg-white">
-        <div className="xl:grid grid-cols-12">
+        <div className="xl:grid grid-cols-12 gap-2">
           <div className="xl:col-span-8">
             <AutoSlider />
           </div>
-          <div className="col-span-4 z-0 hidden xl:flex">
+          <div className="col-span-4 z-0 hidden xl:flex cursor-pointer mt-2 mb-2 shadow-lg bg-[#22c5f210] " onClick={()=>navigate('/aarogyadhan')}>
             <img src={AarogyaDhan} alt="" className="w-full xl:h-[56vh]" />
           </div>
         </div>
