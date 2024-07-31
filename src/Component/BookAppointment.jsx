@@ -524,8 +524,8 @@ const BookAppointment = () => {
         </div>
       </div>
       <div className="py-4">
-        <OurPolicies />
-        <Footer />
+        <OurPolicies/>
+        <Footer/>
       </div>
     </>
   );
